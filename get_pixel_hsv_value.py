@@ -6,8 +6,8 @@ and allows the user to click on the displayed frame to obtain the HSV value of
 the pixel at the clicked location. The script continuously displays the video
 feed and prints the HSV value in the console when the left mouse button is clicked.
 
-Author: [Your Name]
-Date: [Current Date]
+Author: Jacob Pitsenberger
+Date: 12/10/2023
 """
 
 import cv2

@@ -1,3 +1,8 @@
+"""
+Author: Jacob Pitsenberger
+Date: 12/10/2023
+"""
+
 import cv2
 import numpy as np
 
