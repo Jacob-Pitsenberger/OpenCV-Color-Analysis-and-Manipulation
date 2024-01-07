@@ -1,18 +1,22 @@
 # OpenCV Color Analysis and Manipulation
 
-Discover a curated collection of Python scripts and modules crafted for advanced color analysis and pixel manipulation using OpenCV.
+Explore a curated collection of Python scripts and modules designed for advanced color analysis and pixel manipulation using OpenCV. This repository includes tools for capturing pixel values from a webcam, converting them into various formats, and applying color masks for precise color detection.
+
+## Overview
+
+This repository offers tools for pixel value capture, conversion, and color detection through masking. Whether you need to analyze colors interactively or apply precise color detection in real-time, these modules provide a versatile set of functionalities for your OpenCV projects.
 
 ## Modules
 
-### 1. Pixel Value Capture Script
+### 1. Pixel Value Capture Script (get_pixel_hsv_value.py)
 
-This script opens a connection to the default webcam, captures the video feed, and allows the user to click on the displayed frame to obtain the HSV value of the pixel at the clicked location. The script continuously displays the video feed and prints the HSV value in the console when the left mouse button is clicked.
+This script opens a connection to the default webcam, captures the video feed, and enables users to click on the displayed frame to obtain the HSV value of the pixel at the clicked location. The script continuously displays the video feed and prints the HSV value in the console when the left mouse button is clicked.
 
 - **Usage:**
   - Ensure you have OpenCV installed (`pip install opencv-python`).
   - Run the script, and click on the displayed frame to obtain HSV values.
 
-### 2. PixelConverter Class
+### 2. PixelConverter Class (pixel_converter.py)
 
 The PixelConverter class provides functionality to capture pixel values from an OpenCV video feed and convert them into various formats such as BGR, RGB, Hex, HSV, and RGBA.
 
@@ -23,7 +27,7 @@ The PixelConverter class provides functionality to capture pixel values from an 
 - **Features:**
   - Conversion of pixel values into various formats.
   - Modular and object-oriented design for seamless integration.
-  - Perfect for applications requiring color analysis and real-time interactive pixel insights.
+  - Ideal for applications requiring color analysis and real-time interactive pixel insights.
 
 - **Example:**
   ```python
@@ -32,15 +36,33 @@ The PixelConverter class provides functionality to capture pixel values from an 
   if __name__ == "__main__":
       pixel_converter = PixelConverter()
       pixel_converter.get_webcam_pixels()
-  
-## Upcoming Modules
 
-1. Color Detection Modules (Upcoming)
-Coming soon! Modules exploring color detection techniques for diverse applications.
-Gain hands-on experience in detecting and analyzing colors in images and video feeds.
+### 3. Color Detector Module (color_detector.py)
 
-2. Color Masks and Filters (Upcoming)
-Combine with upcoming color detection modules for advanced color manipulation.
+The `ColorDetector` module enhances your OpenCV projects by providing a powerful tool for real-time color detection through masking. 
+Whether you're identifying specific objects or exploring visual effects, this module allows you to dynamically choose color masks, from a set of 
+pre-defined HSV-value ranges for masking specific colors, during runtime, providing flexibility and interactivity.
+
+
+**Usage:**
+- Import the `ColorDetector` class into your project.
+- Create an instance and run the `run` method to start the `ColorDetector` application.
+
+**Features:**
+- Customizable color masking for various predefined colors.
+- Real-time application, capturing video feed, applying color masks, and displaying results.
+
+**User Input:**
+- During runtime, press the 'c' key to dynamically choose the color mask from a list of predefined colors.
+
+**Example:**
+```python
+from color_detector import ColorDetector
+
+if __name__ == "__main__":
+    color_detector = ColorDetector()
+    color_detector.run()
+```
 
 ## Author
 Jacob Pitsenberger

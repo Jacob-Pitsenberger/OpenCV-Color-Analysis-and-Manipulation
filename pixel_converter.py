@@ -48,19 +48,25 @@ class PixelConverter:
               mismatched with what the GUI library expects, leading to a TypeError.
         """
         if event == cv2.EVENT_LBUTTONDOWN:
-            # Get the BGR pixel value at the clicked location
+            # Get the BGR pixel value at the clicked location.
             self.current_pixel = self.frame[y, x]
 
-            # Convert BGR to other formats and store the pixel values in the list
+            # Convert BGR to other formats and store the pixel values in the list.
             self.current_pixel_info = [
-                self.current_pixel,  # The original pixel value in BGR format (default)
-                tuple(reversed(self.current_pixel)),  # Convert BGR to RGB by reversing the order of the color channels
-                "#{:02X}{:02X}{:02X}".format(*self.current_pixel),  # the color in hexadecimal format. The {:02X} format specifier ensures that each color channel is represented by two uppercase hexadecimal characters.
-                cv2.cvtColor(np.uint8([[self.current_pixel]]), cv2.COLOR_BGR2HSV)[0][0],  # Convert BGR to HSV using cv2.cvtColor function
-                tuple(self.current_pixel.tolist() + [255])  # Converts BGR to RGBA by appending an alpha value of 255 (fully opaque)
+                # The original pixel value in BGR format (default).
+                self.current_pixel,
+                # Convert BGR to RGB by reversing the order of the color channels.
+                tuple(reversed(self.current_pixel)),
+                # Get the color in hexadecimal format using the {:02X} format specifier.
+                # This ensures that each channel is represented by two uppercase hex characters.
+                "#{:02X}{:02X}{:02X}".format(*self.current_pixel),
+                # Convert BGR to HSV using cv2.cvtColor function.
+                cv2.cvtColor(np.uint8([[self.current_pixel]]), cv2.COLOR_BGR2HSV)[0][0],
+                # Converts BGR to RGBA by appending an alpha value of 255 (fully opaque).
+                tuple(self.current_pixel.tolist() + [255])
             ]
 
-            # Print the pixel values in different formats in a single statement
+            # Print the pixel values in different formats in a single statement.
             print(", ".join(f"{color_space}: {values}" for color_space, values in
                             zip(["BGR", "RGB", "Hex", "HSV", "RGBA"], self.current_pixel_info)))
 
