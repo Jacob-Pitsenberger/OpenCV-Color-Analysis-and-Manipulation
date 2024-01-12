@@ -22,7 +22,8 @@ class ColorDetector:
     Methods:
     - __init__(self, video_source=0): Initializes the ColorDetector object with a video source.
     - create_color_mask(self, color): Creates a color mask for the specified color based on HSV range.
-    - run(self): Runs the ColorDetector application, capturing video feed, applying a color mask, and displaying it.
+    - run(self): Runs the ColorDetector application, capturing video feed, getting the input color to mask from the user,
+                 applying a binary mask for the specified color, and displaying the frame with only the masked pixels not blacked out.
     """
 
     # Define HSV color ranges for different colors (obtained by getting hsv values for specific objects).
@@ -84,9 +85,10 @@ class ColorDetector:
         Run the ColorDetector application, capturing video feed, applying a color mask, and displaying it.
         """
         try:
+            print("Welcome!\nPlease enter the color you would like to set for detecting...\n")
             print(f'Color Choices: {color_detector.COLOR_RANGES.keys()}')
             color = input("Specify Color Mask: ")
-            print(f'Applying {color} color mask to video feed...')
+            print(f'Applying {color} color mask to video feed.\nPress the "c" key to specify a new color or "q" key to exit the window.')
             while True:
                 # Capture frame-by-frame
                 ret, self.frame = self.cap.read()
@@ -96,8 +98,7 @@ class ColorDetector:
 
                 # Display the frame
                 cv2.imshow('frame', frame)
-                # change waitKey for VGA: 25 fps ~= waitKey(40)
-                key: int = cv2.waitKey(40)
+                key: int = cv2.waitKey(1)
 
                 if key == ord('q'):
                     break
