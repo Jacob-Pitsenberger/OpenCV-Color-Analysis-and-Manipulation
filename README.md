@@ -1,6 +1,7 @@
 # OpenCV Color Analysis and Manipulation
 
-Explore a curated collection of Python scripts and modules designed for advanced color analysis and pixel manipulation using OpenCV. This repository includes tools for capturing pixel values from a webcam, converting them into various formats, and applying color masks for precise color detection.
+Explore a curated collection of Python scripts and modules designed for advanced color analysis and pixel manipulation using OpenCV. 
+This repository includes tools for capturing pixel values from a webcam, converting them into various formats, and applying color masks(binary masking) for precise color detection.
 
 ## Overview
 
@@ -10,11 +11,16 @@ This repository offers tools for pixel value capture, conversion, and color dete
 
 ### 1. Pixel Value Capture Script (get_pixel_hsv_value.py)
 
-This script opens a connection to the default webcam, captures the video feed, and enables users to click on the displayed frame to obtain the HSV value of the pixel at the clicked location. The script continuously displays the video feed and prints the HSV value in the console when the left mouse button is clicked.
+This script opens a connection to the default webcam, captures the video feed, and enables users to click on the displayed frame to obtain the HSV value of the pixel at the clicked location. The script continuously displays the video feed, prints the HSV value in the console when the left mouse button is clicked, and appends these values to a list. After exiting from the video loop by pressing the 'q' key, the upper and lower bounds for that range of HSV pixel values are printed to the console for binary masking use.
+
+Additionally, a function `get_thresh_from_vals` has been added to calculate the minimum and maximum values for each channel of the captured HSV pixel values and provide the lower and upper bounds for binary masking.
 
 - **Usage:**
   - Ensure you have OpenCV installed (`pip install opencv-python`).
-  - Run the script, and click on the displayed frame to obtain HSV values.
+  - Run the script, click on the displayed frame to obtain HSV values, and press 'q' to exit the video loop and get the threshold values.
+
+
+Updated: 1/11/2024
 
 ### 2. PixelConverter Class (pixel_converter.py)
 
